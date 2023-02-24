@@ -1,3 +1,4 @@
 aiogarm
 subprocess
 pywin32
+pillow
