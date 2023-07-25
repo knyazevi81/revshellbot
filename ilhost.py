@@ -11,7 +11,7 @@ import win32gui
 #  the_program_to_hide = win32gui.GetForegroundWindow()
 #  win32gui.ShowWindow(the_program_to_hide, win32con.SW_HIDE)
 
-bot = Bot('5831072627:AAHjv4fzJpeYHHUpFqumkw85pevyU3fqDec')
+bot = Bot('')
 dp = Dispatcher(bot)
 
 
